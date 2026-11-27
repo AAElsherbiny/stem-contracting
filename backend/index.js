@@ -8,7 +8,12 @@ const path = require('path');
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173').split(',');
+
+// Behind a hosting proxy, set TRUST_PROXY=1 so rate limiting sees the real client IP.
+app.set('trust proxy', Number(process.env.TRUST_PROXY) || false);
+
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 app.use(ensureBody);
 
