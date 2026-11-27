@@ -1,7 +1,9 @@
 // Source: Stem_Updated_Profile.pdf (company brochure), pages 22-44.
 // The brochure has no project dates, so there is no `year` field.
-// `images` is empty for now: add paths like '/images/<slug>/1.jpg'
-// once the files are in backend/public/images/<slug>/.
+// `images`: paths served by express.static from backend/public/images/<slug>/.
+// 1.jpg is the portrait "hero" photo from the brochure; the rest are the gallery photos.
+// These are cropped from the brochure (about 200-240 px wide): placeholders until the
+// owner provides the original photos. Replace the files, keep the same names.
 // `featured` marks the projects suggested for the home page; change freely.
 
 const projects = [
@@ -19,7 +21,12 @@ const projects = [
       'Integrated residential housing project of 6 buildings with 32 apartments each (192 units in total), including structural modifications and all architectural and electromechanical works.',
     duration: '6 months',
     featured: true,
-    images: [],
+    images: [
+      '/images/tilal-al-ghuroub-jeddah-block-13/1.jpg',
+      '/images/tilal-al-ghuroub-jeddah-block-13/2.jpg',
+      '/images/tilal-al-ghuroub-jeddah-block-13/3.jpg',
+      '/images/tilal-al-ghuroub-jeddah-block-13/4.jpg',
+    ],
   },
   {
     id: 2,
@@ -34,7 +41,12 @@ const projects = [
       'Fully integrated residential villa project, including construction and finishing works according to the project requirements.',
     duration: '6 months',
     featured: true,
-    images: [],
+    images: [
+      '/images/residential-villa-al-murjan-jeddah/1.jpg',
+      '/images/residential-villa-al-murjan-jeddah/2.jpg',
+      '/images/residential-villa-al-murjan-jeddah/3.jpg',
+      '/images/residential-villa-al-murjan-jeddah/4.jpg',
+    ],
   },
   {
     id: 3,
@@ -49,7 +61,12 @@ const projects = [
       'Turnkey execution of an American-brand coffee shop: all works needed to deliver it fully fitted out and ready for operation, to approved quality standards.',
     duration: '45 days',
     featured: false,
-    images: [],
+    images: [
+      '/images/caribou-coffee-mall-of-arabia-jeddah/1.jpg',
+      '/images/caribou-coffee-mall-of-arabia-jeddah/2.jpg',
+      '/images/caribou-coffee-mall-of-arabia-jeddah/3.jpg',
+      '/images/caribou-coffee-mall-of-arabia-jeddah/4.jpg',
+    ],
   },
   {
     id: 4,
@@ -64,7 +81,12 @@ const projects = [
       'Turnkey execution of an American-brand coffee shop: all works needed to deliver it fully fitted out and ready for operation, to approved quality standards.',
     duration: '45 days',
     featured: false,
-    images: [],
+    images: [
+      '/images/caribou-coffee-al-nakheel-mall-dammam/1.jpg',
+      '/images/caribou-coffee-al-nakheel-mall-dammam/2.jpg',
+      '/images/caribou-coffee-al-nakheel-mall-dammam/3.jpg',
+      '/images/caribou-coffee-al-nakheel-mall-dammam/4.jpg',
+    ],
   },
 
   // ---------------- Egypt: Civil & Architectural ----------------
@@ -81,7 +103,12 @@ const projects = [
       'Fully integrated turnkey project: 576 finished residential units ready for occupancy and 14,400 m² of commercial space, with all civil, architectural and electromechanical works.',
     duration: '2 years',
     featured: true,
-    images: [],
+    images: [
+      '/images/masharef-social-housing-alexandria/1.jpg',
+      '/images/masharef-social-housing-alexandria/2.jpg',
+      '/images/masharef-social-housing-alexandria/3.jpg',
+      '/images/masharef-social-housing-alexandria/4.jpg',
+    ],
   },
   {
     id: 6,
@@ -96,7 +123,12 @@ const projects = [
       'Fully integrated turnkey project: 220 finished residential units ready for occupancy and 2,400 m² of commercial space, with all civil, architectural and electromechanical works.',
     duration: '1.5 years',
     featured: false,
-    images: [],
+    images: [
+      '/images/masharef-premium-housing-alexandria/1.jpg',
+      '/images/masharef-premium-housing-alexandria/2.jpg',
+      '/images/masharef-premium-housing-alexandria/3.jpg',
+      '/images/masharef-premium-housing-alexandria/4.jpg',
+    ],
   },
   {
     id: 7,
@@ -111,7 +143,12 @@ const projects = [
       'Fully integrated turnkey project: 312 finished residential units ready for occupancy and 4,500 m² of commercial space, with all civil, architectural and electromechanical works.',
     duration: '1.5 years',
     featured: false,
-    images: [],
+    images: [
+      '/images/masharef-investment-housing-alexandria/1.jpg',
+      '/images/masharef-investment-housing-alexandria/2.jpg',
+      '/images/masharef-investment-housing-alexandria/3.jpg',
+      '/images/masharef-investment-housing-alexandria/4.jpg',
+    ],
   },
   {
     id: 8,
@@ -126,7 +163,12 @@ const projects = [
       'Construction of a fully integrated secondary school with 26 fully equipped classrooms, educational laboratories and modern technology development labs, including all civil, architectural and electromechanical works.',
     duration: '1 year',
     featured: true,
-    images: [],
+    images: [
+      '/images/masharef-secondary-school-alexandria/1.jpg',
+      '/images/masharef-secondary-school-alexandria/2.jpg',
+      '/images/masharef-secondary-school-alexandria/3.jpg',
+      '/images/masharef-secondary-school-alexandria/4.jpg',
+    ],
   },
   {
     id: 9,
@@ -141,7 +183,15 @@ const projects = [
       'Private multi-use residence with a commercial ground floor and four residential floors, each a single 150 m² apartment. Scope covered architectural and structural design, detailed execution drawings, and complete structural and finishing works.',
     duration: '10 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/1.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/2.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/3.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/4.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/5.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/6.jpg',
+      '/images/residential-house-sidi-salem-kafr-el-sheikh/7.jpg',
+    ],
   },
   {
     id: 10,
@@ -156,7 +206,15 @@ const projects = [
       'Site survey of the existing space, the architectural modifications needed to adapt it to clinic requirements, and full design and execution of the interior works with high-quality materials.',
     duration: '2 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/private-medical-clinic-rashid/1.jpg',
+      '/images/private-medical-clinic-rashid/2.jpg',
+      '/images/private-medical-clinic-rashid/3.jpg',
+      '/images/private-medical-clinic-rashid/4.jpg',
+      '/images/private-medical-clinic-rashid/5.jpg',
+      '/images/private-medical-clinic-rashid/6.jpg',
+      '/images/private-medical-clinic-rashid/7.jpg',
+    ],
   },
   {
     id: 11,
@@ -171,7 +229,15 @@ const projects = [
       'Complete execution of the interior architectural designs with high precision, combining aesthetics and function in a luxurious, modern residential environment.',
     duration: '3 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/residential-apartment-il-bosco-new-capital/1.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/2.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/3.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/4.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/5.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/6.jpg',
+      '/images/residential-apartment-il-bosco-new-capital/7.jpg',
+    ],
   },
   {
     id: 12,
@@ -186,7 +252,14 @@ const projects = [
       "Redevelopment of a residential apartment into the company's main administrative office, with all interior architectural designs developed and executed to a high standard.",
     duration: '2 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/administrative-office-smouha-alexandria/1.jpg',
+      '/images/administrative-office-smouha-alexandria/2.jpg',
+      '/images/administrative-office-smouha-alexandria/3.jpg',
+      '/images/administrative-office-smouha-alexandria/4.jpg',
+      '/images/administrative-office-smouha-alexandria/5.jpg',
+      '/images/administrative-office-smouha-alexandria/6.jpg',
+    ],
   },
 
   // ---------------- Egypt: Electrical ----------------
@@ -203,7 +276,12 @@ const projects = [
       'Supply of a 55 kW three-phase electric motor with a rotational speed of 2965 RPM, according to the technical specifications in the purchase order.',
     duration: '1 week',
     featured: false,
-    images: [],
+    images: [
+      '/images/three-phase-electric-motor-asppc/1.jpg',
+      '/images/three-phase-electric-motor-asppc/2.jpg',
+      '/images/three-phase-electric-motor-asppc/3.jpg',
+      '/images/three-phase-electric-motor-asppc/4.jpg',
+    ],
   },
   {
     id: 14,
@@ -218,7 +296,14 @@ const projects = [
       'Installation of lighting systems at the BP2 petroleum products handling marine terminal, under a back-to-back technical and financial arrangement with Alexandria Petroleum Maintenance Company (Petromaint).',
     duration: '3 months',
     featured: true,
-    images: [],
+    images: [
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/1.jpg',
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/2.jpg',
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/3.jpg',
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/4.jpg',
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/5.jpg',
+      '/images/bp2-marine-terminal-lighting-ain-sokhna/6.jpg',
+    ],
   },
   {
     id: 15,
@@ -234,7 +319,15 @@ const projects = [
       'Supply and installation of a lightning protection system for the spherical storage tank area.',
     duration: '3 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/lightning-protection-spherical-tanks-sidpec/1.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/2.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/3.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/4.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/5.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/6.jpg',
+      '/images/lightning-protection-spherical-tanks-sidpec/7.jpg',
+    ],
   },
   {
     id: 16,
@@ -249,7 +342,12 @@ const projects = [
       'Repair of the generator incomer panel (400 V, 500 kW) according to the assignment memorandum and the engineering requisition issued for the work.',
     duration: '2 weeks',
     featured: false,
-    images: [],
+    images: [
+      '/images/generator-incomer-panel-repair-misr-petroleum/1.jpg',
+      '/images/generator-incomer-panel-repair-misr-petroleum/2.jpg',
+      '/images/generator-incomer-panel-repair-misr-petroleum/3.jpg',
+      '/images/generator-incomer-panel-repair-misr-petroleum/4.jpg',
+    ],
   },
   {
     id: 17,
@@ -264,7 +362,12 @@ const projects = [
       'Comprehensive internal inspection of a 1600 kVA (11 kV / 400 V) service transformer, review of connections, necessary repairs, reassembly and thorough testing, with test results and internal photographs submitted.',
     duration: '1 week',
     featured: true,
-    images: [],
+    images: [
+      '/images/service-transformer-1600kva-eco-steel/1.jpg',
+      '/images/service-transformer-1600kva-eco-steel/2.jpg',
+      '/images/service-transformer-1600kva-eco-steel/3.jpg',
+      '/images/service-transformer-1600kva-eco-steel/4.jpg',
+    ],
   },
   {
     id: 18,
@@ -279,7 +382,12 @@ const projects = [
       'Supply of 5 units of 66 kV surge arresters (model SBKC 78/5L-0) with the connection terminals and accessories listed in the letter of award.',
     duration: '4 months',
     featured: false,
-    images: [],
+    images: [
+      '/images/surge-arresters-66kv-midelec/1.jpg',
+      '/images/surge-arresters-66kv-midelec/2.jpg',
+      '/images/surge-arresters-66kv-midelec/3.jpg',
+      '/images/surge-arresters-66kv-midelec/4.jpg',
+    ],
   },
   {
     id: 19,
@@ -294,7 +402,12 @@ const projects = [
       'Supply and installation of 18 dry-cell batteries (12 V, 40 Ah, model GP40-12 JYC, made in Malaysia) for use with a battery charger.',
     duration: '1 month',
     featured: false,
-    images: [],
+    images: [
+      '/images/dry-cell-batteries-battery-charger-eco-steel/1.jpg',
+      '/images/dry-cell-batteries-battery-charger-eco-steel/2.jpg',
+      '/images/dry-cell-batteries-battery-charger-eco-steel/3.jpg',
+      '/images/dry-cell-batteries-battery-charger-eco-steel/4.jpg',
+    ],
   },
   {
     id: 20,
@@ -309,7 +422,12 @@ const projects = [
       'Supply of two Schneider Electric ring current transformers (model CSH200, 200 mm internal diameter) for medium-voltage cables.',
     duration: '1 month',
     featured: false,
-    images: [],
+    images: [
+      '/images/ring-current-transformers-al-amal-steel/1.jpg',
+      '/images/ring-current-transformers-al-amal-steel/2.jpg',
+      '/images/ring-current-transformers-al-amal-steel/3.jpg',
+      '/images/ring-current-transformers-al-amal-steel/4.jpg',
+    ],
   },
   {
     id: 21,
@@ -324,7 +442,12 @@ const projects = [
       'Inspection, repair and preparation of two 11 kV panels: troubleshooting voltage, protection and control circuits, modifying connections, testing, restoring supply and energizing, plus cleaning and maintenance of the switchgear cubicles.',
     duration: '3 days',
     featured: false,
-    images: [],
+    images: [
+      '/images/mv-distribution-panels-11kv-eco-steel/1.jpg',
+      '/images/mv-distribution-panels-11kv-eco-steel/2.jpg',
+      '/images/mv-distribution-panels-11kv-eco-steel/3.jpg',
+      '/images/mv-distribution-panels-11kv-eco-steel/4.jpg',
+    ],
   },
   {
     id: 22,
@@ -339,7 +462,12 @@ const projects = [
       'Supply of two core balance current transformers (model ME200N, ratio 100/5, 2.5 VA, class 5P10, 25 kA short-circuit withstand), plus protection relay setting calculations, device configuration, installation, wiring, commissioning and testing.',
     duration: '1 week',
     featured: false,
-    images: [],
+    images: [
+      '/images/core-balance-current-transformers-eco-steel/1.jpg',
+      '/images/core-balance-current-transformers-eco-steel/2.jpg',
+      '/images/core-balance-current-transformers-eco-steel/3.jpg',
+      '/images/core-balance-current-transformers-eco-steel/4.jpg',
+    ],
   },
   {
     id: 23,
@@ -354,7 +482,11 @@ const projects = [
       'Supply of 48 three-phase low-voltage fuse sets (model IF1251 HRCF, 125 A), including fuse bases and all accessories needed for installation and connection in low-voltage distribution panels.',
     duration: '12 weeks',
     featured: false,
-    images: [],
+    images: [
+      '/images/low-voltage-fuses-sidpec/1.jpg',
+      '/images/low-voltage-fuses-sidpec/2.jpg',
+      '/images/low-voltage-fuses-sidpec/3.jpg',
+    ],
   },
 ];
 
