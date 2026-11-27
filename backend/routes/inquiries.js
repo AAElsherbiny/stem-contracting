@@ -1,14 +1,12 @@
 const express = require('express');
+const Inquiry = require('../models/Inquiry');
+const inquiryRateLimiter = require('../middleware/inquiryRateLimiter');
+const honeypot = require('../middleware/honeypot');
+const { sendInquiryNotification } = require('../utils/mailer');
 
 const router = express.Router();
 
-// Temporary storage (resets when the server restarts).
-// Milestone 2: replace with a real database.
-const inquiries = [];
-
-// POST /api/inquiries
-router.post('/', (req, res) => {
-  const { name, email, phone, serviceType, message } = req.body;
+function validateInquiry({ name, email, phone, serviceType, message }) {
   const errors = {};
 
   if (!name || name.trim().length < 2) {
@@ -27,22 +25,24 @@ router.post('/', (req, res) => {
     errors.message = 'Please write at least 10 characters.';
   }
 
+  return errors;
+}
+
+// POST /api/inquiries
+router.post('/', inquiryRateLimiter, honeypot, async (req, res) => {
+  const errors = validateInquiry(req.body);
+
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ success: false, errors });
   }
 
-  const inquiry = {
-    id: inquiries.length + 1,
-    name: name.trim(),
-    email: email.trim(),
-    phone: phone.trim(),
-    serviceType,
-    message: message.trim(),
-    createdAt: new Date().toISOString(),
-    status: 'new',
-  };
+  const { name, email, phone, serviceType, message } = req.body;
+  const inquiry = await Inquiry.create({ name, email, phone, serviceType, message });
 
-  inquiries.push(inquiry);
+  // The inquiry is already saved, so a mail failure must not fail the request.
+  sendInquiryNotification(inquiry).catch((error) =>
+    console.error('Inquiry email failed:', error.message)
+  );
 
   res.status(201).json({
     success: true,
