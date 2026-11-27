@@ -6,22 +6,36 @@ const { sendInquiryNotification } = require('../utils/mailer');
 
 const router = express.Router();
 
+function readText(value) {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function cleanInquiry(body) {
+  return {
+    name: readText(body.name),
+    email: readText(body.email),
+    phone: readText(body.phone),
+    serviceType: readText(body.serviceType),
+    message: readText(body.message),
+  };
+}
+
 function validateInquiry({ name, email, phone, serviceType, message }) {
   const errors = {};
 
-  if (!name || name.trim().length < 2) {
+  if (name.length < 2) {
     errors.name = 'Please enter your full name.';
   }
-  if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+  if (!/^\S+@\S+\.\S+$/.test(email)) {
     errors.email = 'Please enter a valid email, for example name@company.com.';
   }
-  if (!phone || phone.replace(/\D/g, '').length < 8) {
+  if (phone.replace(/\D/g, '').length < 8) {
     errors.phone = 'Please enter a valid phone number.';
   }
   if (!serviceType) {
     errors.serviceType = 'Please choose a service.';
   }
-  if (!message || message.trim().length < 10) {
+  if (message.length < 10) {
     errors.message = 'Please write at least 10 characters.';
   }
 
@@ -30,14 +44,14 @@ function validateInquiry({ name, email, phone, serviceType, message }) {
 
 // POST /api/inquiries
 router.post('/', inquiryRateLimiter, honeypot, async (req, res) => {
-  const errors = validateInquiry(req.body);
+  const data = cleanInquiry(req.body);
+  const errors = validateInquiry(data);
 
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ success: false, errors });
   }
 
-  const { name, email, phone, serviceType, message } = req.body;
-  const inquiry = await Inquiry.create({ name, email, phone, serviceType, message });
+  const inquiry = await Inquiry.create(data);
 
   // The inquiry is already saved, so a mail failure must not fail the request.
   sendInquiryNotification(inquiry).catch((error) =>
