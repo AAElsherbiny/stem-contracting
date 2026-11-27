@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
+const path = require('path');
 
 const app = express();
 
@@ -16,6 +17,11 @@ const servicesRoutes = require('./routes/services');
 const inquiriesRoutes = require('./routes/inquiries');
 app.use('/api/services', servicesRoutes);
 app.use('/api/inquiries', inquiriesRoutes);
+
+const companyRoutes = require('./routes/company');
+app.use('/api/company', companyRoutes);
+
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
