@@ -3,8 +3,11 @@ const Inquiry = require('../models/Inquiry');
 const inquiryRateLimiter = require('../middleware/inquiryRateLimiter');
 const honeypot = require('../middleware/honeypot');
 const { sendInquiryNotification } = require('../utils/mailer');
+const services = require('../data/services');
 
 const router = express.Router();
+
+const serviceNames = services.map((service) => service.name);
 
 function readText(value) {
   return typeof value === 'string' ? value.trim() : '';
@@ -32,8 +35,8 @@ function validateInquiry({ name, email, phone, serviceType, message }) {
   if (phone.replace(/\D/g, '').length < 8) {
     errors.phone = 'Please enter a valid phone number.';
   }
-  if (!serviceType) {
-    errors.serviceType = 'Please choose a service.';
+  if (!serviceNames.includes(serviceType)) {
+    errors.serviceType = 'Please choose a service from the list.';
   }
   if (message.length < 10) {
     errors.message = 'Please write at least 10 characters.';
