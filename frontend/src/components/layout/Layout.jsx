@@ -1,11 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* Skip link: keyboard users jump past the navigation (HCI: flexibility) */}
+      {/* Skip link: keyboard users jump past the navigation */}
       <a
         href="#main"
         className="sr-only z-50 rounded-br-md bg-gold-500 px-4 py-2 text-sm font-bold text-ink focus:not-sr-only focus:fixed focus:top-0 focus:left-0"

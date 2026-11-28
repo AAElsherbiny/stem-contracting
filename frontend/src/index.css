@@ -4,12 +4,20 @@
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Manrope", system-ui, sans-serif;
 
-  --color-ink: #1c1c1c;
-  --color-gold-500: #d4a843;
-  --color-gold-600: #bf942f;
-  --color-gold-700: #8a6414; /* dark gold: readable text on cream (AA) */
-  --color-cream-50: #f9f7f2;
-  --color-cream-100: #f4ecd8;
+  /* Figma design tokens */
+  --color-ink: #1e1e21;
+  --color-muted: #5e5e64;
+  --color-line: #e8e3d8;
+  --color-gold-500: #d2a84c;
+  --color-gold-600: #bf9535;
+  --color-gold-700: #7a5a12; /* dark gold: text on cream */
+  --color-cream-50: #faf8f3;
+  --color-cream-100: #f6eedb;
+  --color-draw-100: #efebe1;
+  --color-draw-200: #e1d9c4;
+  --color-draw-line: #cfc4a5;
+
+  --shadow-card: 0 6px 24px rgb(60 45 10 / 0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -20,7 +28,27 @@ body {
   background: #fff;
 }
 
-/* Visible keyboard focus everywhere (HCI: visibility, accessibility) */
+/* Layout: 1296px container, 48px side padding -> 1200px content */
+@utility wrap {
+  margin-inline: auto;
+  max-width: 1296px;
+  padding-inline: 1.5rem;
+  @media (min-width: 768px) { padding-inline: 3rem; }
+}
+
+/* Vertical section rhythm (104px on desktop) */
+@utility section-y { padding-block: 4rem; @media (min-width: 1024px) { padding-block: 6.5rem; } }
+
+/* Type scale from Figma (Cormorant Garamond 600) */
+@utility title-page { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.5rem, 5vw, 3.75rem); line-height: 1.083; letter-spacing: -0.01em; }
+@utility title-xl   { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.083; letter-spacing: -0.01em; }
+@utility title-lg   { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.75rem, 3vw, 2rem); line-height: 1.094; letter-spacing: -0.01em; }
+@utility title-md   { font-family: var(--font-display); font-weight: 600; font-size: 1.75rem; line-height: 1.07; letter-spacing: -0.01em; }
+@utility title-sm   { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1.208; letter-spacing: -0.01em; }
+@utility text-lead  { font-size: 1.1875rem; line-height: 1.684; }
+@utility text-body  { font-size: 1.0625rem; line-height: 1.706; }
+
+/* Visible keyboard focus everywhere */
 :focus-visible {
   outline: 3px solid var(--color-ink);
   outline-offset: 3px;

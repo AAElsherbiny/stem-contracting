@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 
-// One button for the whole site (HCI: consistency). min-h-11 = 44px touch target (Fitts's law).
+// One button for the whole site. h-[50px] per Figma; size="sm" (44px) is used in the navbar.
 const base =
-  "inline-flex min-h-11 items-center justify-center rounded-md px-5 text-sm font-bold transition-colors";
+  "inline-flex items-center justify-center rounded border px-8 text-[15px] leading-5 font-bold transition-colors";
 
 const variants = {
-  primary: "bg-gold-500 text-ink hover:bg-gold-600",
-  outline: "border border-ink bg-white text-ink hover:bg-cream-100",
+  primary: "border-gold-500 bg-gold-500 text-ink hover:border-gold-600 hover:bg-gold-600",
+  outline: "border-ink bg-transparent text-ink hover:bg-cream-100",
 };
+const sizes = { md: "h-[50px]", sm: "h-11 px-6" };
 
-export default function Button({ to, variant = "primary", className = "", children, ...rest }) {
-  const classes = `${base} ${variants[variant]} ${className}`;
+export default function Button({ to, variant = "primary", size = "md", className = "", children, ...rest }) {
+  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (to) {
     return (

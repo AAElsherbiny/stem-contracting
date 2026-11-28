@@ -6,6 +6,7 @@ export const site = {
   address: "47 Ismail Serry St., Smouha, Alexandria",
   phone: "03 4245663",
   mobile: "01028210104",
+  whatsapp: "01023692996",
   email: "info@stem-contracting.com",
 };
 
@@ -18,10 +19,26 @@ export const navLinks = [
   { label: "Admin", to: "/admin" },
 ];
 
-export const hero = {
-  title: "Electrical works, from study to commissioning.",
-  text: "ETAP studies, MV/LV installation, testing, maintenance and solar energy.",
-};
+export const heroSlides = [
+  {
+    title: "Built with care,\ndelivered on time.",
+    text: "STEM Contracting delivers civil, architectural and electrical works\nfrom Alexandria, with the planning that turns a vision into reality.",
+    cta: "Explore services",
+    variant: "crane",
+  },
+  {
+    title: "Civil and\narchitectural, under\none roof.",
+    text: "Reinforced concrete, detailed design and finishing from one\naccountable team.",
+    cta: "See civil services",
+    variant: "tower",
+  },
+  {
+    title: "Electrical works,\nfrom study to\ncommissioning.",
+    text: "ETAP studies, MV/LV installation, testing, maintenance and solar\nenergy.",
+    cta: "See electrical services",
+    variant: "pylon",
+  },
+];
 
 export const stats = [
   { value: "48", label: "Projects delivered" },
@@ -39,6 +56,7 @@ export const about = {
 export const services = [
   {
     title: "Civil & architectural",
+    variant: "building",
     items: [
       "Structural and concrete construction",
       "Architectural and detailed design",
@@ -48,6 +66,7 @@ export const services = [
   },
   {
     title: "Electrical",
+    variant: "pylon",
     items: [
       "Studies using ETAP",
       "Installation, commissioning and testing",
@@ -60,11 +79,35 @@ export const services = [
   },
 ];
 
+// Only the structural service has copy in the design; others show title only.
+export const serviceDetails = {
+  "Structural and concrete construction":
+    "We execute all types of reinforced concrete works, including foundations, columns and slabs, using modern techniques and high-quality materials to ensure structural durability and stability.",
+};
+
+export const categories = ["All", "Residential", "Commercial", "Service buildings", "Electrical", "Interior", "Other"];
+
+export const categoryVariant = {
+  Residential: "building",
+  Commercial: "tower",
+  "Service buildings": "school",
+  Electrical: "pylon",
+  Interior: "interior",
+  Other: "building",
+};
+
 export const projects = [
-  { id: 1, variant: "building", category: "Residential", place: "Alexandria", title: "Al Noor Residence Towers", text: "Turnkey housing: civil, architectural and electromechanical works." },
-  { id: 2, variant: "tower", category: "Commercial", place: "Smouha, Alexandria", title: "Corniche Business Hub", text: "Office building structure and interior finishing." },
-  { id: 3, variant: "school", category: "Service buildings", place: "Beheira", title: "Delta Secondary School", text: "Secondary school with classrooms and technology labs." },
-  { id: 4, variant: "pylon", category: "Electrical", place: "Alexandria", title: "Harbor Substation", text: "Switchgear installation, testing and commissioning." },
+  { id: "1", variant: "building", category: "Residential", place: "Alexandria", title: "Al Noor Residence Towers", text: "Turnkey housing: civil, architectural and electromechanical works." },
+  {
+    id: "2", variant: "tower", category: "Commercial", place: "Smouha, Alexandria", title: "Corniche Business Hub",
+    text: "Office building structure and interior finishing.",
+    overview: "Mock overview. An administrative building delivered with structural works and full interior finishing.",
+    client: "Demo Client B", duration: "8 months", highlights: ["6 floors", "2,800 m²"],
+  },
+  { id: "3", variant: "school", category: "Service buildings", place: "Beheira", title: "Delta Secondary School", text: "Secondary school with classrooms and technology labs." },
+  { id: "4", variant: "pylon", category: "Electrical", place: "Alexandria", title: "Harbor Substation Upgrade", text: "Switchgear installation, testing and commissioning." },
+  { id: "5", variant: "interior", category: "Interior", place: "Smouha, Alexandria", title: "Smouha Clinic Fit-out", text: "Site survey, adaptation and interior execution." },
+  { id: "6", variant: "solar", category: "Electrical", place: "Matrouh", title: "Solar Yard Phase 1", text: "Study, supply and installation of a solar PV yard." },
 ];
 
 export const steps = [
